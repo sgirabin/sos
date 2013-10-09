@@ -1,37 +1,34 @@
 
 package com.rabincorp.sos.domain.entity;
 
+import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.TableGenerator;
 
 /**
  *
  * @author isakrabin
  */
 @Entity
-public class BusinessProfile implements Serializable{
+public class BusinessProfile extends BaseEntity implements Serializable{
     
     @Id
-    @Column(name="BUSINESS_PROFILE_ID")
-    @TableGenerator(name="TABLE_GEN", table="SEQUENCE_TABLE", pkColumnName="SEQ_NAME",
-        valueColumnName="SEQ_COUNT", pkColumnValue="BUSINESSPROFILE_SEQ")
-    @GeneratedValue(strategy=GenerationType.TABLE, generator="TABLE_GEN")
-    private Long id;    
-    
+    @Column(name = "profile_id")
+    private Long id;
+
+    @NotNull
     private String name;
     
+    @NotNull
     private String address;
     
     private String city;
-    
-    private String state;
+
+    private String stateName;
     
     private String country;
     
@@ -80,12 +77,12 @@ public class BusinessProfile implements Serializable{
         this.city = city;
     }
 
-    public String getState() {
-        return state;
+    public String getStateName() {
+        return stateName;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
     }
 
     public String getCountry() {
@@ -136,15 +133,14 @@ public class BusinessProfile implements Serializable{
         this.websiteUrl = websiteUrl;
     }
 
-    
-    public void addBusinessHour(OperationHour operationHour) {
-        
-    }
-    
     public Collection<OperationHour> getBusinessHours() {
         return businessHours;
     }
-    
-     
+
+    public void setBusinessHours(Collection<OperationHour> businessHours) {
+        this.businessHours = businessHours;
+    }
+
+
     
 }

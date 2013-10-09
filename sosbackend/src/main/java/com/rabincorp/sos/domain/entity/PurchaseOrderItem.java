@@ -12,15 +12,15 @@ import javax.persistence.ManyToOne;
  * @author isakrabin
  */
 @Entity
-public class OrderItem implements Serializable{
+public class PurchaseOrderItem extends BaseEntity implements Serializable{
     
     @Id
-    @Column(name="ORDER_ITEM_ID")
+    @Column(name="order_item_id")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name="ORDER_ID")
-    private Order order;
+    @JoinColumn(name="order_id")
+    private PurchaseOrder order;
 
     
     public Long getId() {

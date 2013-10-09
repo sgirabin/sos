@@ -4,8 +4,8 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <jta-data-source>jdbc/sosds</jta-data-source>
     <class>com.rabincorp.sos.domain.entity.BusinessProfile</class>
-    <class>com.rabincorp.sos.domain.entity.Order</class>
-    <class>com.rabincorp.sos.domain.entity.OrderItem</class>
+    <class>com.rabincorp.sos.domain.entity.PurchaseOrder</class>
+    <class>com.rabincorp.sos.domain.entity.PurchaseOrderItem</class>
     <properties>
       <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
     </properties>

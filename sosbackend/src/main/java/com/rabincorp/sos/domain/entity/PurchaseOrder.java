@@ -13,14 +13,14 @@ import javax.persistence.OneToMany;
  */
 
 @Entity
-public class Order implements Serializable{
+public class PurchaseOrder extends BaseEntity implements Serializable{
     
     @Id
-    @Column(name="ORDER_ID")
+    @Column(name = "order_id")
     private Long id;
     
     @OneToMany(mappedBy = "order")
-    private Collection<OrderItem> items;
+    private Collection<PurchaseOrderItem> items;
 
     public Long getId() {
         return id;
@@ -29,5 +29,15 @@ public class Order implements Serializable{
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Collection<PurchaseOrderItem> getItems() {
+        return items;
+    }
+
+    public void setItems(Collection<PurchaseOrderItem> items) {
+        this.items = items;
+    }
+
+
     
 }
